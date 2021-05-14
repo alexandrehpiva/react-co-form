@@ -18,7 +18,7 @@ export type CoFormResponse<T> = {
  * }
  * @return {*} {CoFormResponse<T>}
  */
-function useCoForm<T extends { [k in keyof T]: any }>({
+function useCoForm<T extends Record<keyof T, any>>({
   initialValues,
 }: CoForm<T>): CoFormResponse<T> {
   const [values, setValues] = useState<T>(initialValues);
