@@ -1,4 +1,8 @@
 /**
  * Hooks
  */
-export * from './useCoForm';
+import * as useCoForm from './useCoForm';
+
+export default {
+  useCoForm,
+};
