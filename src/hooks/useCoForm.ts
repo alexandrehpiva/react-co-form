@@ -1,26 +1,12 @@
 import { ChangeEvent, useState } from 'react';
-
-export type CoForm<T> = {
-  initialValues: T;
-};
-
-export type CoFormResponse<T> = {
-  values: T;
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-};
+import { CoFormProps, CoFormResp } from '../types';
 
 /**
  * Controls the form state
- *
- * @template T
- * @param {CoForm<T>} {
- *   initialValues
- * }
- * @return {*} {CoFormResponse<T>}
  */
 function useCoForm<T extends Record<keyof T, any>>({
   initialValues,
-}: CoForm<T>): CoFormResponse<T> {
+}: CoFormProps<T>): CoFormResp<T> {
   const [values, setValues] = useState<T>(initialValues);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {

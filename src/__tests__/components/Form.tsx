@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormEvent } from 'react';
 
-import useCoForm from '../../useCoForm';
+import useCoForm from '../../hooks/useCoForm';
 
 type FormProps = {
   name: string;
