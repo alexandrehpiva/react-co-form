@@ -10,8 +10,8 @@
     "test": "./src/__tests__"
   },
   "scripts": {
-    "prepare": "yarn run-s test build",
-    "build": "tsc --skipLibCheck",
+    "prepare": "tsc --skipLibCheck",
+    "build": "yarn run-s test prepare",
     "test": "jest --config jestconfig.json",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
