@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
 import { CoFormProps, CoFormResp } from '../types';
 
 /**
@@ -9,17 +9,20 @@ function useCoForm<T extends Record<keyof T, any>>({
 }: CoFormProps<T>): CoFormResp<T> {
   const [values, setValues] = useState<T>(initialValues);
 
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    const fieldName = event.target.getAttribute('name');
-    const fieldValue = event.target.value;
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const fieldName = event.target.getAttribute('name');
+      const fieldValue = event.target.value;
 
-    if (fieldName !== null) {
-      setValues({
-        ...values,
-        [fieldName]: fieldValue,
-      });
-    }
-  }
+      if (fieldName !== null) {
+        setValues({
+          ...values,
+          [fieldName]: fieldValue,
+        });
+      }
+    },
+    [values]
+  );
 
   return {
     values,

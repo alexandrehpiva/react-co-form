@@ -1,5 +1,4 @@
-import React from 'react';
-import { FormEvent } from 'react';
+import React, { FormEvent } from 'react';
 
 import useCoForm from '../../hooks/useCoForm';
 
